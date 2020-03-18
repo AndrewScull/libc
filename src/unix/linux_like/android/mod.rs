@@ -619,6 +619,9 @@ pub const EPOLLONESHOT: ::c_int = 0x40000000;
 pub const EPOLLRDHUP: ::c_int = 0x00002000;
 pub const EPOLLWAKEUP: ::c_int = 0x20000000;
 
+pub const SEEK_DATA: ::c_int = 3;
+pub const SEEK_HOLE: ::c_int = 4;
+
 pub const EFD_CLOEXEC: ::c_int = 0x80000;
 
 pub const USER_PROCESS: ::c_short = 7;
