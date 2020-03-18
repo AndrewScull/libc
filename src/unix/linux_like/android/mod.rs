@@ -802,6 +802,12 @@ pub const PTHREAD_MUTEX_RECURSIVE: ::c_int = 1;
 pub const PTHREAD_MUTEX_ERRORCHECK: ::c_int = 2;
 pub const PTHREAD_MUTEX_DEFAULT: ::c_int = PTHREAD_MUTEX_NORMAL;
 
+pub const SCHED_NORMAL: ::c_int = 0;
+pub const SCHED_FIFO: ::c_int = 1;
+pub const SCHED_RR: ::c_int = 2;
+pub const SCHED_BATCH: ::c_int = 3;
+pub const SCHED_IDLE: ::c_int = 5;
+
 pub const FIOCLEX: ::c_int = 0x5451;
 pub const FIONCLEX: ::c_int = 0x5450;
 
