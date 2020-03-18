@@ -626,7 +626,12 @@ pub const EFD_CLOEXEC: ::c_int = 0x80000;
 
 pub const USER_PROCESS: ::c_short = 7;
 
+pub const FALLOC_FL_KEEP_SIZE: ::c_int = 0x01;
+pub const FALLOC_FL_PUNCH_HOLE: ::c_int = 0x02;
 pub const FALLOC_FL_COLLAPSE_RANGE: ::c_int = 0x08;
+pub const FALLOC_FL_ZERO_RANGE: ::c_int = 0x10;
+pub const FALLOC_FL_INSERT_RANGE: ::c_int = 0x20;
+pub const FALLOC_FL_UNSHARE_RANGE: ::c_int = 0x40;
 
 pub const BUFSIZ: ::c_uint = 1024;
 pub const FILENAME_MAX: ::c_uint = 4096;
@@ -2205,10 +2210,27 @@ extern "C" {
     pub fn setutent();
     pub fn getutent() -> *mut utmp;
 
+    pub fn fallocate(
+        fd: ::c_int,
+        mode: ::c_int,
+        offset: ::off_t,
+        len: ::off_t,
+    ) -> ::c_int;
+    pub fn fallocate64(
+        fd: ::c_int,
+        mode: ::c_int,
+        offset: ::off64_t,
+        len: ::off64_t,
+    ) -> ::c_int;
     pub fn posix_fallocate(
         fd: ::c_int,
         offset: ::off_t,
         len: ::off_t,
+    ) -> ::c_int;
+    pub fn posix_fallocate64(
+        fd: ::c_int,
+        offset: ::off64_t,
+        len: ::off64_t,
     ) -> ::c_int;
     pub fn signalfd(
         fd: ::c_int,
